@@ -1,0 +1,20 @@
+{
+  "name": "vue-obj",
+  "version": "0.1.0",
+  "description": "vue简历编辑器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uchihasatoshi/vue-obj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/uchihasatoshi/vue-obj/issues"
+  },
+  "homepage": "https://github.com/uchihasatoshi/vue-obj#readme"
+}
