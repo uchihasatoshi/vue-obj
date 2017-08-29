@@ -39,17 +39,42 @@ body,
   flex-direction: column;
 }
 
-.topbar {}
+.topbar {
+  box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 
 main {
 
   display: flex;
   flex: 1;
+  background: #DDD;
+
   >.editor {
-    width: 30%;
+    width: 40em;
+    margin: 16px 8px 16px 16px;
+    background: #fff;
+    box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow-x: hidden;
   }
+
   >.preview {
     flex: 1;
+    margin: 16px 16px 16px 8px;
+    background: #fff;
+    box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
   }
 }
 
