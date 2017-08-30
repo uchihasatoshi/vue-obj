@@ -12,18 +12,7 @@
     </nav>
     <ol class="panes">
       <li v-bind:class="{active: currentTab===0}">
-        <h2>个人信息</h2>
-        <el-form>
-          <el-form-item label="姓名">
-            <el-input v-model="profile.name"></el-input>
-          </el-form-item>
-          <el-form-item label="所在城市">
-            <el-input v-model="profile.city"></el-input>
-          </el-form-item>
-          <el-form-item label="出生年月">
-            <el-input v-model="profile.birth"></el-input>
-          </el-form-item>
-        </el-form>
+        <Profile v-bind:profile="profile"/>
       </li>
       <li v-bind:class="{active: currentTab===1}">
         <h2>工作经历</h2>
@@ -38,7 +27,7 @@
             <i class="el-icon-circle-cross" v-on:click="removeWorkHistory(index)"></i>
             <hr>
           </div>
-          <el-button type="primary" v-on:click="addWorkHistory">添加</el-button>
+          <el-button class="addWorkHistory" type="primary" v-on:click="addWorkHistory">添加</el-button>
         </el-form>
       </li>
       <li v-bind:class="{active: currentTab===2}">
@@ -57,7 +46,13 @@
   </div>
 </template>
 <script>
+import Profile from './Profile'
+
 export default {
+  components: {
+    Profile
+  },
+
   data() {
     return {
       currentTab: 0,
@@ -72,6 +67,7 @@ export default {
       ]
     }
   },
+
   methods: {
     addWorkHistory() {
       this.workHistory.push({
@@ -121,6 +117,9 @@ export default {
         right: 0;
         top: 11px;
       }
+    }
+    .addWorkHistory {
+      margin-top: 16px;
     }
     >li {
       display: none;
