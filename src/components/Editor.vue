@@ -12,26 +12,13 @@
     </nav>
     <ol class="panes">
       <li v-bind:class="{active: currentTab===0}">
-        <Profile v-bind:profile="profile"/>
+        <Profile v-bind:profile="profile" />
       </li>
       <li v-bind:class="{active: currentTab===1}">
-        <h2>工作经历</h2>
-        <el-form>
-          <div class="container" v-for="(work,index) in workHistory">
-            <el-form-item label="公司名称">
-              <el-input v-model="work.company"></el-input>
-            </el-form-item>
-            <el-form-item label="工作内容">
-              <el-input v-model="work.content"></el-input>
-            </el-form-item>
-            <i class="el-icon-circle-cross" v-on:click="removeWorkHistory(index)"></i>
-            <hr>
-          </div>
-          <el-button class="addWorkHistory" type="primary" v-on:click="addWorkHistory">添加</el-button>
-        </el-form>
+        <WorkHistory v-bind:workHistory="workHistory" />
       </li>
       <li v-bind:class="{active: currentTab===2}">
-        <h2>学习经历</h2>
+        <Study v-bind:studyHistory="studyHistory" />
       </li>
       <li v-bind:class="{active: currentTab===3}">
         <h2>获奖情况</h2>
@@ -47,10 +34,14 @@
 </template>
 <script>
 import Profile from './Profile'
+import WorkHistory from './WorkHistory'
+import Study from './Study'
 
 export default {
   components: {
-    Profile
+    Profile,
+    WorkHistory,
+    Study
   },
 
   data() {
@@ -64,21 +55,14 @@ export default {
       },
       workHistory: [
         { company: '', content: '' }
+      ],
+      studyHistory:[
+      	{ school: '', time :'', degree:''}
       ]
     }
   },
 
-  methods: {
-    addWorkHistory() {
-      this.workHistory.push({
-        company: '',
-        content: ''
-      })
-    },
-    removeWorkHistory(index) {
-      this.workHistory.splice(index, 1)
-    }
-  }
+  methods: {}
 }
 
 </script>
