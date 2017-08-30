@@ -11,12 +11,48 @@
       </ol>
     </nav>
     <ol class="panes">
-      <li v-bind:class="{active: currentTab===0}">1</li>
-      <li v-bind:class="{active: currentTab===1}">2</li>
-      <li v-bind:class="{active: currentTab===2}">3</li>
-      <li v-bind:class="{active: currentTab===3}">4</li>
-      <li v-bind:class="{active: currentTab===4}">5</li>
-      <li v-bind:class="{active: currentTab===5}">6</li>
+      <li v-bind:class="{active: currentTab===0}">
+        <h2>个人信息</h2>
+        <el-form>
+          <el-form-item label="姓名">
+            <el-input v-model="profile.name"></el-input>
+          </el-form-item>
+          <el-form-item label="所在城市">
+            <el-input v-model="profile.city"></el-input>
+          </el-form-item>
+          <el-form-item label="出生年月">
+            <el-input v-model="profile.birth"></el-input>
+          </el-form-item>
+        </el-form>
+      </li>
+      <li v-bind:class="{active: currentTab===1}">
+        <h2>工作经历</h2>
+        <el-form>
+          <div class="container" v-for="(work,index) in workHistory">
+            <el-form-item label="公司名称">
+              <el-input v-model="work.company"></el-input>
+            </el-form-item>
+            <el-form-item label="工作内容">
+              <el-input v-model="work.content"></el-input>
+            </el-form-item>
+            <i class="el-icon-circle-cross" v-on:click="removeWorkHistory(index)"></i>
+            <hr>
+          </div>
+          <el-button type="primary" v-on:click="addWorkHistory">添加</el-button>
+        </el-form>
+      </li>
+      <li v-bind:class="{active: currentTab===2}">
+        <h2>学习经历</h2>
+      </li>
+      <li v-bind:class="{active: currentTab===3}">
+        <h2>获奖情况</h2>
+      </li>
+      <li v-bind:class="{active: currentTab===4}">
+        <h2>项目情况</h2>
+      </li>
+      <li v-bind:class="{active: currentTab===5}">
+        <h2>联系方式</h2>
+      </li>
     </ol>
   </div>
 </template>
@@ -25,7 +61,26 @@ export default {
   data() {
     return {
       currentTab: 0,
-      icons: ['gerenxinxi', 'gongzuo', 'shu_1', 'huojiangmingdan', 'daima', 'dianhua-1']
+      icons: ['gerenxinxi', 'gongzuo', 'shu_1', 'huojiangmingdan', 'daima', 'dianhua-1'],
+      profile: {
+        name: '',
+        city: '',
+        birth: '',
+      },
+      workHistory: [
+        { company: '', content: '' }
+      ]
+    }
+  },
+  methods: {
+    addWorkHistory() {
+      this.workHistory.push({
+        company: '',
+        content: ''
+      })
+    },
+    removeWorkHistory(index) {
+      this.workHistory.splice(index, 1)
     }
   }
 }
@@ -58,13 +113,23 @@ export default {
     }
   }
   .panes {
-    border: 1px solid #000;
+    flex: 1;
+    .container {
+      position: relative;
+      i {
+        position: absolute;
+        right: 0;
+        top: 11px;
+      }
+    }
     >li {
       display: none;
+      padding: 32px;
+      height: 100%;
+      overflow: auto;
     }
     >li.active {
       display: block;
-      border: 1px solid red;
     }
   }
 }
