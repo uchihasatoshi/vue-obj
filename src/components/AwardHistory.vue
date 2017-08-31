@@ -4,10 +4,10 @@
     <el-form>
       <div class="container" v-for="(items,index) in awardHistory">
         <el-form-item label="获奖证书">
-          <el-input v-model="items.awardName"></el-input>
+          <el-input v-model="items.awardName" placeholder="英语四级"></el-input>
         </el-form-item>
         <el-form-item label="获奖时间">
-          <el-input v-model="items.awardtime"></el-input>
+          <el-input v-model="items.awardTime" placeholder="2016-12"></el-input>
         </el-form-item>
         <i class="el-icon-circle-cross" v-on:click="removelist(index)"></i>
         <hr>
@@ -24,7 +24,7 @@ export default {
     addlist() {
       this.awardHistory.push({
         awardName: '',
-        awardtime: ''
+        awardTime: ''
       })
     },
     removelist(index) {

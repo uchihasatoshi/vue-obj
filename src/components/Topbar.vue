@@ -13,6 +13,7 @@
 <style lang='scss'>
 #topbar {
   display: flex;
+  background: #1F2D3D;
   justify-content: space-between;
   align-items: center;
   padding: 16px;

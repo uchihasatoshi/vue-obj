@@ -4,13 +4,14 @@
     <el-form>
       <div class="container" v-for="(items,index) in projects">
         <el-form-item label="项目名称">
-          <el-input v-model="items.projectName"></el-input>
+          <el-input v-model="items.projectName" placeholder="项目名称"></el-input>
         </el-form-item>
         <el-form-item label="项目时间">
-          <el-input v-model="items.projectTime"></el-input>
+          <el-input v-model="items.projectTime" placeholder="格式：2017-11 ~ 2017-12"></el-input>
         </el-form-item>
         <el-form-item label="项目描述">
-          <el-input v-model="items.describe"></el-input>
+          <el-input type="textarea" :rows="3" placeholder="请输入项目描述" v-model="items.describe">
+          </el-input>
         </el-form-item>
         <i class="el-icon-circle-cross" v-on:click="removelist(index)"></i>
         <hr>

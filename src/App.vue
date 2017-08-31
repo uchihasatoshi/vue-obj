@@ -35,10 +35,11 @@ export default {
         profile: {
           name: '',
           city: '',
-          birth: ''
+          birth: '',
+          position:''
         },
         workHistory: [
-          { company: '', content: '' }
+          { company: '', content: '', post:'' }
         ],
         studyHistory: [
           { school: '', time: '', degree: '' }
@@ -101,6 +102,12 @@ main {
     box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
     overflow-x: hidden;
+    h2{
+      margin-bottom: 16px;
+    }
+    .el-icon-circle-cross{
+      color: #20A0FF;
+    }
   }
 
   >.preview {

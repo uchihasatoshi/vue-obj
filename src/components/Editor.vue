@@ -67,7 +67,7 @@ export default {
   min-height: 100px;
   display: flex;
   nav {
-    background: #000;
+    background: #1F2D3D;
     width: 80px;
 
     >ol>li {
