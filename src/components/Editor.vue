@@ -12,57 +12,53 @@
     </nav>
     <ol class="panes">
       <li v-bind:class="{active: currentTab===0}">
-        <Profile v-bind:profile="profile" />
+        <Profile v-bind:profile="resume.profile" />
       </li>
       <li v-bind:class="{active: currentTab===1}">
-        <WorkHistory v-bind:workHistory="workHistory" />
+        <WorkHistory v-bind:workHistory="resume.workHistory" />
       </li>
       <li v-bind:class="{active: currentTab===2}">
-        <Study v-bind:studyHistory="studyHistory" />
+        <Study v-bind:studyHistory="resume.studyHistory" />
       </li>
       <li v-bind:class="{active: currentTab===3}">
-        <h2>获奖情况</h2>
+        <AwardHistory v-bind:awardHistory="resume.awardHistory" />
       </li>
       <li v-bind:class="{active: currentTab===4}">
-        <h2>项目情况</h2>
+        <Projects v-bind:projects="resume.projects" />
       </li>
       <li v-bind:class="{active: currentTab===5}">
-        <h2>联系方式</h2>
+        <ContactWay v-bind:contactWay="resume.contactWay" />
       </li>
     </ol>
   </div>
 </template>
+
 <script>
 import Profile from './Profile'
 import WorkHistory from './WorkHistory'
 import Study from './Study'
+import AwardHistory from './AwardHistory'
+import Projects from './Projects'
+import ContactWay from './ContactWay'
 
 export default {
   components: {
     Profile,
     WorkHistory,
-    Study
+    Study,
+    AwardHistory,
+    Projects,
+    ContactWay
   },
+
+  props:['resume'],
 
   data() {
     return {
       currentTab: 0,
-      icons: ['gerenxinxi', 'gongzuo', 'shu_1', 'huojiangmingdan', 'daima', 'dianhua-1'],
-      profile: {
-        name: '',
-        city: '',
-        birth: '',
-      },
-      workHistory: [
-        { company: '', content: '' }
-      ],
-      studyHistory:[
-      	{ school: '', time :'', degree:''}
-      ]
+      icons: ['gerenxinxi', 'gongzuo', 'shu_1', 'huojiangmingdan', 'daima', 'dianhua-1']
     }
-  },
-
-  methods: {}
+  }
 }
 
 </script>

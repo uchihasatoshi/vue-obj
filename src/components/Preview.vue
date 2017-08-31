@@ -1,7 +1,10 @@
 <template>
 	<div id="preview">
-		我是Preview
+		<h1>{{resume.profile.name}}</h1>
 	</div>
+<!-- 	<section v-if="resume.projects.length >0">
+		{{resume.projects}}
+	</section> -->
 </template>
 
 <style>
@@ -10,3 +13,9 @@
 	}
 
 </style>
+
+<script>
+	export default{
+		props: ['resume']
+	}
+</script>

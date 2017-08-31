@@ -3,8 +3,8 @@
   <div id="app">
     <Topbar class="topbar" />
     <main>
-      <Editor class="editor" />
-      <Preview class="preview" />
+      <Editor v-bind:resume="resume" class="editor" />
+      <Preview v-bind:resume="resume" class="preview" />
     </main>
   </div>
 </template>
@@ -18,6 +18,30 @@ export default {
     Topbar,
     Editor,
     Preview
+  },
+  data() {
+    return {
+      resume: {
+        profile: {
+          name: '',
+          city: '',
+          birth: ''
+        },
+        workHistory: [
+          { company: '', content: '' }
+        ],
+        studyHistory: [
+          { school: '', time: '', degree: '' }
+        ],
+        awardHistory: [
+          { awardName: '', awardTime: '' }
+        ],
+        projects: [
+          { projectName: '', projectTime: '', describe: '' }
+        ],
+        contactWay: { cellphone: '', mailbox: '', blog: '' },
+      }
+    }
   }
 }
 
