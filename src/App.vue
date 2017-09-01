@@ -24,7 +24,7 @@ export default {
     preview() {
       this.previewMode = true
     },
-    exitPreview(){
+    exitPreview() {
       this.previewMode = false
     }
   },
@@ -36,10 +36,10 @@ export default {
           name: '',
           city: '',
           birth: '',
-          position:''
+          position: ''
         },
         workHistory: [
-          { company: '', content: '', post:'' }
+          { company: '', content: '', post: '' }
         ],
         studyHistory: [
           { school: '', time: '', degree: '' }
@@ -102,10 +102,10 @@ body,
     box-shadow: 0 0 3px hsla(0, 0, 0, 0.5);
     border-radius: 4px;
     overflow-x: hidden;
-    h2{
+    h2 {
       margin-bottom: 16px;
     }
-    .el-icon-circle-cross{
+    .el-icon-circle-cross {
       color: #20A0FF;
     }
   }
