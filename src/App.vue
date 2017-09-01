@@ -2,7 +2,7 @@
 <template>
   <div id="app" v-bind:class="{previewMode:previewMode}">
     <Topbar class="topbar" v-on:preview="preview" />
-    <main>
+    <main id="main">
       <Editor v-bind:resume="resume" class="editor" />
       <Preview v-bind:resume="resume" class="preview" />
     </main>
@@ -89,7 +89,7 @@ body,
   overflow: hidden;
 }
 
-#app main {
+#main {
 
   display: flex;
   flex: 1;
@@ -127,7 +127,6 @@ body,
 .previewMode #editor {
   display: none;
 }
-
 .previewMode #preview {
   max-width: 800px;
   margin: 32px auto;
