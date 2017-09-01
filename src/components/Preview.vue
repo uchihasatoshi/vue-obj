@@ -38,10 +38,14 @@
       </div>
       <h3 class="text">学习经历</h3>
     </div>
-    <section v-if="filter(resume.studyHistory).length >0">
+    <section class="studybox" v-if="filter(resume.studyHistory).length >0">
       <ul>
         <li v-for="study in filter(resume.studyHistory)">
-          {{study.school}} {{study.time}} {{study.degree}}
+          <div class="study">
+            <div>{{study.school}}</div>
+            <div>{{study.time}}</div>
+            <div>{{study.degree}}</div>
+          </div>
         </li>
       </ul>
     </section>
@@ -54,10 +58,13 @@
       </div>
       <h3 class="text">获奖情况</h3>
     </div>
-    <section v-if="filter(resume.awardHistory).length >0">
+    <section class="studybox" v-if="filter(resume.awardHistory).length >0">
       <ul>
         <li v-for="award in filter(resume.awardHistory)">
-          {{award.awardName}} {{award.awardTime}}
+          <div class="study">
+            <div>{{award.awardName}}</div>
+            <div>{{award.awardTime}}</div>
+          </div>
         </li>
       </ul>
     </section>
@@ -90,8 +97,12 @@
       </div>
       <h3 class="text">联系方式</h3>
     </div>
-    <section>
-      {{resume.contactWay.cellphone}} {{resume.contactWay.mailbox}} {{resume.contactWay.blog}}
+    <section class="contactWay">
+      <div class="contact">
+        <div>手机：{{resume.contactWay.cellphone}}</div>
+        <div>邮箱：{{resume.contactWay.mailbox}}</div>
+        <div>博客：{{resume.contactWay.blog}}</div>
+      </div>
     </section>
   </div>
 </template>
@@ -100,6 +111,7 @@
   min-height: 100px;
   padding: 32px;
   font-size: 16px;
+  overflow-y: auto;
   .name {
     color: #2F4860;
   }
@@ -153,18 +165,42 @@
         display: flex;
         font-size: 16px;
         .company {
-          max-width: 60%;
+          width: 33%;
           margin-right: 48px;
           overflow-x: hidden;
         }
         .post {
-          max-width: 40%;
+          width: 33%;
           overflow-x: hidden;
         }
       }
       .content {
         font-size: 14px;
         margin-top: 12px;
+      }
+    }
+  }
+  .studybox {
+    margin-top: 16px;
+    color: #2F4860;
+    li {
+      padding: 16px 0 0 40px;
+      .study {
+        display: flex;
+        div {
+          margin-right: 40px;
+          width: 33%;
+        }
+      }
+    }
+  }
+  .contactWay {
+    margin-top: 16px;
+    color: #2F4860;
+    .contact {
+      padding: 0 0 0 40px;
+      div {
+        margin: 16px 40px 16px 0;
       }
     }
   }
