@@ -177,6 +177,7 @@
       .content {
         font-size: 14px;
         margin-top: 12px;
+        overflow-x: hidden;
       }
     }
   }
